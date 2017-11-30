@@ -1,15 +1,14 @@
 import { Mongo } from 'meteor/mongo';
 import { Tracker } from 'meteor/tracker'
 import SimpleSchema from 'simpl-schema';
-import { strictEqual } from 'assert';
 
-let AvisoPrevio = new Mongo.Collection('AvisoPrevio');
+let AvisosPrevios = new Mongo.Collection('AvisosPrevios');
 
-let AvisoPreviochema = new SimpleSchema({
+let AvisosPrevioschema = new SimpleSchema({
     codigo : {
         type : number
     },
-    funcionario : {
+    funcionario : { // Como colocar funcionario?
         type : String
     },
     dataDoDocumento : {
@@ -23,6 +22,6 @@ let AvisoPreviochema = new SimpleSchema({
     }
 }, {tracker: Tracker});
 
-AvisoPrevio.attachSchema(AvisoPreviochema);
+AvisosPrevios.attachSchema(AvisosPrevioschema);
 
-export default AvisoPrevio;
+export default AvisosPrevios;

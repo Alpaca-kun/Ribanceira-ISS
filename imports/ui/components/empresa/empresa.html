@@ -1,3 +1,36 @@
-<template name="addempresa">
+<template name="empresas">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">
+                    #
+                </th>
+                <th scope="col">
+                    Razão Social
+                </th>
+                <th scope="col">
+                    CNPJ
+                </th>
+                <th scope="col">
+                    Cidade
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each empresas}}
+            <tr>
+                <th scope="row">
+                    {{_id}}
+                </th>
+                <td>
+                    {{razaoSocial}}
+                </td>
+                <td>
+                    {{cnpj}}
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
   {{> quickForm collection=Empresas id="insertBookForm" type="insert"}}
 </template>

@@ -27,3 +27,4 @@ johanbrook:publication-collector  # Test a Meteor publication by collecting its 
 aldeed:autoform
 aldeed:collection2-core
 insecure
+autopublish

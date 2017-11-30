@@ -2,12 +2,15 @@ import Empresas from '../../../api/empresas/empresas'
 
 import './empresa.html';
 
-Template.addempresa.onCreated(() => {
+Template.empresas.onCreated(() => {
     window.test = Empresas
 })
 
-Template.addempresa.helpers({
+Template.empresas.helpers({
     Empresas() {
         return Empresas;
+    },
+    empresas() {
+        return Empresas.find()
     }
 })

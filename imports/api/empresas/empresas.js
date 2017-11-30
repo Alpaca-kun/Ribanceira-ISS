@@ -15,4 +15,4 @@ let EmpresaSchema = new SimpleSchema({
 
 Empresas.attachSchema(EmpresaSchema);
 
-export { Empresas };
+export default Empresas;

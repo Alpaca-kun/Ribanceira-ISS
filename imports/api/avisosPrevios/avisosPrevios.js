@@ -6,16 +6,16 @@ let AvisosPrevios = new Mongo.Collection('AvisosPrevios');
 
 let AvisosPrevioschema = new SimpleSchema({
     codigo : {
-        type : number
+        type : Number
     },
-    funcionario : { // Como colocar funcionario?
-        type : String
+      funcionario : { 
+        type : Number // Buscar por ID, melhorar posteriormente
     },
     dataDoDocumento : {
-        type : number
+        type : Number
     },
     dataDeRescisaoDoFuncionario : {
-        type : number
+        type : Number
     },
     motivoDaRescisao : {
         type : String

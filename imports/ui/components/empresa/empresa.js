@@ -1,9 +1,10 @@
+import { Session } from 'meteor/session'
+
 import Empresas from '../../../api/empresas/empresas'
 
 import './empresa.html';
 
-Template.empresas.onCreated(() => {
-    window.test = Empresas
+Template.empresas.onCreated(function () {
 })
 
 Template.empresas.helpers({
@@ -11,6 +12,18 @@ Template.empresas.helpers({
         return Empresas;
     },
     empresas() {
-        return Empresas.find()
+        return Empresas.find();
+    },
+    atual() {
+        return Empresas.findOne({_id: Session.get('atual')});
+    }
+})
+
+Template.empresas.events({
+    "click #updateBtn"() {
+        Session.set('atual', this._id);
+    },
+    "click #deleteEmpresa"() {
+        Empresas.remove({_id: this._id});
     }
 })

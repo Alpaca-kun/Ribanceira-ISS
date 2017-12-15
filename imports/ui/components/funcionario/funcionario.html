@@ -1,0 +1,33 @@
+<template name="funcionario">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">
+                    #
+                </th>
+                <th scope="col">
+                    Nome
+                </th>
+                <th scope="col">
+                    CPF
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each funcionarios}}
+            <tr>
+                <th scope="row">
+                    {{_id}}
+                </th>
+                <td>
+                    {{nome}}
+                </td>
+                <td>
+                    {{cpf}}
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+  {{> quickForm collection=Empresas id="insertBookForm" type="insert"}}
+</template>

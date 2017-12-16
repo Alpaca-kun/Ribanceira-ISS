@@ -1,3 +1,5 @@
+import { Session } from 'meteor/session';
+
 import Sindicatos from '../../../api/sindicatos/sindicatos'
 
 import './sindicato.html';

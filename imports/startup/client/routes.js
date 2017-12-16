@@ -8,6 +8,7 @@ import '../../ui/pages/not-found/not-found.js';
 import '../../ui/components/empresa/empresa.js';
 import '../../ui/components/sindicato/sindicato.js';
 import '../../ui/components/funcionario/funcionario.js';
+import '../../ui/components/ocorrencia/ocorrencia.js';
 
 // Set up all routes in the app
 FlowRouter.route('/', {
@@ -34,6 +35,8 @@ FlowRouter.route('/empresas/:id/funcionarios', {
         BlazeLayout.render('App_body', { main: 'funcionario'})
     }
 });
+
+// Adicionar rota para ocorrencia, conforme o padrão tomado
 
 FlowRouter.notFound = {
     action() {

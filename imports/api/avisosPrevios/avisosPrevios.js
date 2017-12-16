@@ -9,13 +9,13 @@ let AvisosPrevioschema = new SimpleSchema({
         type : Number
     },
       funcionario : { 
-        type : Number // Buscar por ID, melhorar posteriormente
+        type : String // Buscar por ID, melhorar posteriormente
     },
     dataDoDocumento : {
-        type : Number
+        type : Date
     },
     dataDeRescisaoDoFuncionario : {
-        type : Number
+        type : Date
     },
     motivoDaRescisao : {
         type : String

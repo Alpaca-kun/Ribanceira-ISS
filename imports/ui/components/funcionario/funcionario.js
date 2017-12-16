@@ -16,10 +16,13 @@ Template.funcionario.helpers({
     empresaAtual() {
         return Empresas.findOne({_id: FlowRouter.getParam('id')},
             {transform: function(doc) {
-                doc.funcionarios = doc.funcionarios.map((x, i)=>{
-                    x.indice = i
-                    return x
-                })
+                if (doc.funcionarios)
+                    doc.funcionarios = doc.funcionarios.map((x, i)=>{
+                        x.indice = i
+                        return x
+                    })
+                else
+                    doc.funcionarios = []
                 return doc
             }})
     },

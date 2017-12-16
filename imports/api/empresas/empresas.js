@@ -1,5 +1,5 @@
 import { Mongo } from 'meteor/mongo';
-import { Tracker } from 'meteor/tracker'
+import { Tracker } from 'meteor/tracker';
 import SimpleSchema from 'simpl-schema';
 
 let Empresas = new Mongo.Collection('empresas');

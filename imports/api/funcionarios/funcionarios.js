@@ -1,25 +1,24 @@
-import { Mongo } from 'meteor/mongo';
 import { Tracker } from 'meteor/tracker';
 import SimpleSchema from 'simpl-schema';
 
-let Funcionarios = new Mongo.Collection('funcionarios');
+import { validarCPF } from '../../utils';
 
-let FuncionariosSchema = new SimpleSchema({
+export const FuncionariosSchema = new SimpleSchema({
     nome: {
-        type: String
+        type: String,
+        min: 3
     },
     cpf: {
-        type: String
+        type: String,
+        custom: function() {
+            return validarCPF(this.value)
+        }
     },
     salario : {
         type: Number,
         min: 0
     },
-    empresa: {
+    sindicato: {
         type: String
     }
-});
-
-Funcionarios.attachSchema(FuncionariosSchema);
-
-export default Funcionarios;
+}, {tracker: Tracker});

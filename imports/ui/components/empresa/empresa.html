@@ -40,9 +40,7 @@
                             <i class="fa fa-cog"></i>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="/empresas/{{_id}}/funcionarios">Gerenciar Funcionarios</a>
                         </div>
                     </div>
                 </td>
@@ -67,7 +65,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    {{> quickForm collection=Empresas id="insertBookForm" type="insert"}}
+                    {{> quickForm collection=Empresas omitFields="funcionarios" id="insertBookForm" type="insert"}}
                 </div>
             </div>
         </div>
@@ -83,7 +81,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    {{> quickForm collection=Empresas id="updateEmpresa" type="update" doc=atual}}
+                    {{> quickForm collection=Empresas omitFields="funcionarios" id="updateEmpresa" type="update" doc=atual}}
                 </div>
             </div>
         </div>

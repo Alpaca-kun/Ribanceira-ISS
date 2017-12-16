@@ -3,31 +3,82 @@
         <thead>
             <tr>
                 <th scope="col">
-                    #
-                </th>
-                <th scope="col">
                     Nome
                 </th>
                 <th scope="col">
                     CPF
                 </th>
+                <th scope="col">
+                    Salario
+                </th>
             </tr>
         </thead>
         <tbody>
-            {{#each funcionarios}}
+            {{#each funcionario in empresaAtual.funcionarios}}
             <tr>
-                <th scope="row">
-                    {{_id}}
-                </th>
                 <td>
-                    {{nome}}
+                    {{funcionario.nome}}
                 </td>
                 <td>
-                    {{cpf}}
+                    {{funcionario.cpf}}
+                </td>
+                <td>
+                    {{funcionario.salario}}
+                </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-cog"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Adicionar Ocorrencia</a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <button data-toggle="modal" onclick="updateFuncionario({{funcionario.indice}})" id="updateBtn" data-target="#editModal" class="btn btn-warning" ><i class="fa fa-pencil"></i></button>
                 </td>
             </tr>
             {{/each}}
         </tbody>
     </table>
-  {{> quickForm collection=Empresas id="insertBookForm" type="insert"}}
+    <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Adicionar</button>
+    <div class="modal" id="addModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Adicionar Funcionario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{> quickForm id="addFuncionario" type="update-pushArray" collection=Empresas doc=empresaAtual scope="funcionarios"}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{#if escopo}}
+    <div class="modal" id="editModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{atual.razaoSocial}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{#autoForm id="updateFuncionario" type="update" collection=Empresas doc=empresaAtual setArrayItems=true}}
+                        {{> afQuickField name=escopo}}
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="reset" class="btn btn-default">Reset Form</button>
+                        </div>
+                    {{/autoForm}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/if}}
 </template>

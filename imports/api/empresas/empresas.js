@@ -1,5 +1,5 @@
 import { Mongo } from 'meteor/mongo';
-import { Tracker } from 'meteor/tracker'
+import { Tracker } from 'meteor/tracker';
 import SimpleSchema from 'simpl-schema';
 
 import { validarCNPJ } from '../../utils.js'

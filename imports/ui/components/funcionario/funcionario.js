@@ -16,7 +16,6 @@ Template.funcionario.helpers({
     empresaAtual() {
         return Empresas.findOne({_id: FlowRouter.getParam('id')},
             {transform: function(doc) {
-                console.log(doc)
                 if (doc.funcionarios)
                     doc.funcionarios = doc.funcionarios.map((x, i)=>{
                         x.indice = i

@@ -14,3 +14,12 @@ Template.sindicatos.helpers({
         return Sindicatos.find()
     }
 })
+
+Template.sindicatos.events({
+    "click #updateBtn"() {
+        Session.set('atual', this._id);
+    },
+    "click #deleteSindicato"() {
+        Sindicatos.remove({_id: this._id});
+    }
+})

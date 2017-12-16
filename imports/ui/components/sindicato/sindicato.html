@@ -15,8 +15,17 @@
                     Endereço
                 </th>
                 <th scope="col">
-										Telefone
-								</th>
+                    Telefone
+                </th>
+                <th scope="col">
+                    Editar
+                </th>
+                <th scope="col">
+                    Atualizar
+                </th>
+                <th scope="col">
+                    Remover
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -37,9 +46,61 @@
                 <td>
                   {{telefone}}
                 </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-cog"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Importar convenção coletiva</a>
+                            <a class="dropdown-item" href="#">Visualizar convenção coletiva</a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <button data-toggle="modal" id="updateBtn" data-target="#editModal" class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" id="deleteSindicato"><i class="fa fa-times"></i></button>
+                </td>
             </tr>
             {{/each}}
         </tbody>
     </table>
-  {{> quickForm collection=Sindicatos id="insertSindicatos" type="insert"}}
+    
+		<button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Adicionar</button>
+    <div class="modal" id="addModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Adicionar Sindicatos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{> quickForm collection=Sindicatos id="insertSindicatos" type="insert"}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{#if atual}}
+    
+		<div class="modal" id="editModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{atual.razaoSocial}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{> quickForm collection=Sindicatos id="updateSindicatos" type="update" doc=atual}}
+                </div>
+            </div>
+        </div>
+    </div>
+		{{/if}}
+    
 </template>

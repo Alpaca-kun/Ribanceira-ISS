@@ -6,7 +6,6 @@ import '../../ui/layouts/body/body.js';
 import '../../ui/pages/home/home.js';
 import '../../ui/pages/not-found/not-found.js';
 import '../../ui/components/empresa/empresa.js';
-import '../../ui/components/avisoPrevio/avisoPrevio.js';
 import '../../ui/components/sindicato/sindicato.js';
 
 // Set up all routes in the app
@@ -20,12 +19,6 @@ FlowRouter.route('/', {
 FlowRouter.route('/empresas', {
     action() {
         BlazeLayout.render('App_body', { main: 'empresas'})
-    }
-});
-
-FlowRouter.route('/avisosPrevios', {
-    action() {
-        BlazeLayout.render('App_body', { main: 'avisosPrevios'})
     }
 });
 

@@ -30,9 +30,6 @@ let EmpresaSchema = new SimpleSchema({
     funcionarios: {
         type: Array
     },
-    'funcionarios.$': {
-        type: FuncionariosSchema
-    }
 }, {tracker: Tracker});
 
 Empresas.attachSchema(EmpresaSchema);

@@ -28,7 +28,7 @@ let EmpresaSchema = new SimpleSchema({
         regEx: /^[1-9]{2}\-[2-9][0-9]{7,8}$/,
     },
     funcionarios: {
-        type: Array
+        type: String
     },
 }, {tracker: Tracker});
 

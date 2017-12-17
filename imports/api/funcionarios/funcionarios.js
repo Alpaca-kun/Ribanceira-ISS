@@ -20,5 +20,18 @@ export const FuncionariosSchema = new SimpleSchema({
     },
     sindicato: {
         type: String
+    },
+    ocorrencia: {
+        type: Array,
+        required: false
+    },
+    "ocorrencia.$": {
+        type: Object
+    },
+    "ocorrencia.$.data": {
+        type: Date
+    },
+    "ocorrencia.$.descricao": {
+        type: String
     }
 }, {tracker: Tracker});

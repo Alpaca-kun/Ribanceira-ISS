@@ -1,36 +1,33 @@
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Session } from 'meteor/session';
+import { AutoForm } from 'meteor/aldeed:autoform';
 
-import Empresas from '../../../api/empresas/empresas'
+import Funcionarios from '../../../api/funcionarios/funcionarios'
 
 import './funcionario.html'
 
 Template.funcionario.onCreated(function() {
     console.log(FlowRouter.getParam('id'))
+
+    window.aT = AutoForm
+
+    AutoForm.addHooks('addFuncionario', {
+        before: {
+            insert: function(doc, ss) {
+                console.log(doc)
+                doc.empresa = FlowRouter.getParam('id')
+
+                return doc
+            }
+        }
+    })
 })
 
 Template.funcionario.helpers({
-    Empresas() {
-        return Empresas
+    Funcionarios() {
+        return Funcionarios
     },
     empresaAtual() {
-        return Empresas.findOne({_id: FlowRouter.getParam('id')},
-            {transform: function(doc) {
-                if (doc.funcionarios)
-                    doc.funcionarios = doc.funcionarios.map((x, i)=>{
-                        x.indice = i
-                        return x
-                    })
-                else
-                    doc.funcionarios = []
-                return doc
-            }})
-    },
-    escopo() {
-        return Session.get('escopo');
+        return Funcionarios.find({empresa: FlowRouter.getParam('id')}).fetch();
     }
 })
-
-window.updateFuncionario = function(indice) {
-    Session.set("escopo", "funcionarios."+indice);    
-}

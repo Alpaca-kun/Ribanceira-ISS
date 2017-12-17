@@ -23,6 +23,9 @@ let FuncionariosSchema = new SimpleSchema({
     },
     sindicato: {
         type: String
+    },
+    empresa: {
+        type: String
     }
 }, {tracker: Tracker});
 

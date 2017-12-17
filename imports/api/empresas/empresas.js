@@ -26,13 +26,6 @@ let EmpresaSchema = new SimpleSchema({
     telefone : {
         type: String,
         regEx: /^[1-9]{2}\-[2-9][0-9]{7,8}$/,
-    },
-    funcionarios: {
-        type: Array,
-        required: false
-    },
-    "funcionario.$": {
-        type: String
     }
 }, {tracker: Tracker});
 

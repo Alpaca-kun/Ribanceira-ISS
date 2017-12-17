@@ -31,8 +31,8 @@ let EmpresaSchema = new SimpleSchema({
         type: Array,
         required: false
     },
-    'funcionarios.$': {
-        type: FuncionariosSchema
+    "funcionario.$": {
+        type: String
     }
 }, {tracker: Tracker});
 

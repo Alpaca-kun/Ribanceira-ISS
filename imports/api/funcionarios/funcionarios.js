@@ -1,9 +1,12 @@
+import { Mongo } from 'meteor/mongo';
 import { Tracker } from 'meteor/tracker';
 import SimpleSchema from 'simpl-schema';
 
 import { validarCPF } from '../../utils';
 
-export const FuncionariosSchema = new SimpleSchema({
+let Funcionarios = new Mongo.Collection('funcionarios');
+
+let FuncionariosSchema = new SimpleSchema({
     nome: {
         type: String,
         min: 3
@@ -21,17 +24,11 @@ export const FuncionariosSchema = new SimpleSchema({
     sindicato: {
         type: String
     },
-    ocorrencia: {
-        type: Array,
-        required: false
-    },
-    "ocorrencia.$": {
-        type: Object
-    },
-    "ocorrencia.$.data": {
-        type: Date
-    },
-    "ocorrencia.$.descricao": {
+    empresa: {
         type: String
     }
 }, {tracker: Tracker});
+
+Funcionarios.attachSchema(FuncionariosSchema);
+
+export default Funcionarios;

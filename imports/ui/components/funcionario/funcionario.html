@@ -14,16 +14,16 @@
             </tr>
         </thead>
         <tbody>
-            {{#each funcionario in empresaAtual.funcionarios}}
+            {{#each empresaAtual}}
             <tr>
                 <td>
-                    {{funcionario.nome}}
+                    {{nome}}
                 </td>
                 <td>
-                    {{funcionario.cpf}}
+                    {{cpf}}
                 </td>
                 <td>
-                    {{funcionario.salario}}
+                    {{salario}}
                 </td>
                 <td>
                     <div class="dropdown">
@@ -31,12 +31,12 @@
                             <i class="fa fa-cog"></i>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <button data-toggle="modal" data-target="#editModal" class="dropdown-item" onclick="updateFuncionario({{funcionario.indice}})">Adicionar Ocorrencia</button>
+                            <a class="dropdown-item">Dummy</a>
                         </div>
                     </div>
                 </td>
                 <td>
-                    <button data-toggle="modal" onclick="updateFuncionario({{funcionario.indice}})" id="updateBtn" data-target="#editModal" class="btn btn-warning" ><i class="fa fa-pencil"></i></button>
+                    <button data-toggle="modal" id="updateBtn" data-target="#editModal" class="btn btn-warning"><i class="fa fa-pencil"></i></button>
                 </td>
             </tr>
             {{/each}}
@@ -53,32 +53,9 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    {{> quickForm id="addFuncionario" type="update-pushArray" collection=Empresas doc=empresaAtual scope="funcionarios"}}
+                    {{> quickForm id="addFuncionario" type="insert" collection=Funcionarios omitFields='empresa'}}
                 </div>
             </div>
         </div>
     </div>
-    {{#if escopo}}
-    <div class="modal" id="editModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">{{atual.razaoSocial}}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    {{#autoForm id="updateFuncionario" type="update" collection=Empresas doc=empresaAtual setArrayItems=true}}
-                        {{> afQuickField name=escopo}}
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                            <button type="reset" class="btn btn-default">Reset Form</button>
-                        </div>
-                    {{/autoForm}}
-                </div>
-            </div>
-        </div>
-    </div>
-    {{/if}}
 </template>

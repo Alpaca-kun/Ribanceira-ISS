@@ -25,6 +25,19 @@
                 <td>
                     {{salario}}
                 </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-cog"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item">Dummy</a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <button data-toggle="modal" id="updateBtn" data-target="#editModal" class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                </td>
             </tr>
             {{/each}}
         </tbody>

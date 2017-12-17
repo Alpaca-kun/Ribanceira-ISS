@@ -3,9 +3,6 @@
         <thead>
             <tr>
                 <th scope="col">
-                    #
-                </th>
-                <th scope="col">
                     Data da Ocorrência
                 </th>
                 <th scope="col">
@@ -22,16 +19,13 @@
         <tbody>
             {{#each ocorrencias}}
             <tr>
-                <th scope="row">
-                    {{_id}}
-                </th>
                 <td>
                     {{dataDaOcorrencia}}
                 </td>
                 <td>
                     {{justificativa}}
                 </td>
-               <td>
+                <td>
                     <button data-toggle="modal" id="updateBtn" data-target="#editModal" class="btn btn-warning"><i class="fa fa-pencil"></i></button>
                 </td>
                 <td>

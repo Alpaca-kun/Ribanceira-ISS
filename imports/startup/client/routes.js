@@ -36,7 +36,11 @@ FlowRouter.route('/empresas/:id/funcionarios', {
     }
 });
 
-// Adicionar rota para ocorrencia, conforme o padrão tomado
+FlowRouter.route('/empresas/:id/funcionarios/ocorrencias', {
+    action() {
+        BlazeLayout.render('App_body', { main: 'ocorrencias'})
+    }
+});
 
 FlowRouter.notFound = {
     action() {

@@ -7,7 +7,7 @@ describe('Funcionario', () =>{
         assert.equal(Funcionarios.simpleSchema().namedContext().validate({
             nome : "Christian",
             cpf : "01205266976",
-            salario : "800",
+            salario : 800,
             sindicato : "Depart. de computacao",
             empresa : "DIN",
         }), true)
@@ -17,7 +17,7 @@ describe('Funcionario', () =>{
         assert.equal(Funcionarios.simpleSchema().namedContext().validate({
             nome : "Chr",
             cpf : "01205266900",
-            salario : "-800",
+            salario : -800,
             sindicato : "aaaa",
             empresa : "DIN",
         }), false)

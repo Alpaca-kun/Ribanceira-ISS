@@ -7,16 +7,34 @@ import Funcionarios from '../../../api/funcionarios/funcionarios'
 
 import "./adciona_hora.html"
 
-AutoForm.addHooks("updateHoras", {
+AutoForm.addHooks("insertHora", {
     before: {
         insert: function(doc) {
+            doc.funcionario = FlowRouter.getParam('id')
+            doc.ano = Session.get('ano')
+            doc.mes = Session.get('mes')
+
+            return doc
         }
     }
 })
 
+Template.addhoras.onCreated(() => {
+    window.teste = HoraExtra
+})
+
 Template.addhoras.helpers({
-    funcionarios() {
-        Funcionarios.find({empresa: FlowRouter.getParam('id')}).fetch()
+    HoraExtra() {
+        return HoraExtra
+    },
+    horas() {
+        return Funcionarios.find({empresa: FlowRouter.getParam('id')}).fetch()
+            .map(doc => {
+                let hora = HoraExtra.findOne({funcionario: FlowRouter.getParam('id'), mes:Session.get('mes'), ano:Session.get('ano')})
+                if (hora)
+                    doc.hora = hora
+                return doc
+            })
     }
 })
 

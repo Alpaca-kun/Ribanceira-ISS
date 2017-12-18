@@ -36,7 +36,7 @@ FlowRouter.route('/empresas/:id/funcionarios', {
     }
 });
 
-FlowRouter.route('/empresas/:id/funcionarios/ocorrencias', {
+FlowRouter.route('/funcionarios/:funcionarioId/ocorrencias', {
     action() {
         BlazeLayout.render('App_body', { main: 'ocorrencias'})
     }

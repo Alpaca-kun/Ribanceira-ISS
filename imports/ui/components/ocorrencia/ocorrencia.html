@@ -23,7 +23,7 @@
                     {{dataDaOcorrencia}}
                 </td>
                 <td>
-                    {{justificativa}}
+                    {{descricao}}
                 </td>
                 <td>
                     <button data-toggle="modal" id="updateBtn" data-target="#editModal" class="btn btn-warning"><i class="fa fa-pencil"></i></button>
@@ -35,8 +35,8 @@
             {{/each}}
         </tbody>
     </table>
-    
-		<button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Adicionar</button>
+
+    <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Adicionar</button>
     <div class="modal" id="addModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -47,14 +47,13 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    {{> quickForm collection=Ocorrencias id="insertOcorrencias" type="insert"}}
+                    {{> quickForm collection=Ocorrencias omitFields="funcionario" id="insertOcorrencias" type="insert"}}
                 </div>
             </div>
         </div>
     </div>
     {{#if atual}}
-    
-		<div class="modal" id="editModal" tabindex="-1" role="dialog">
+    <div class="modal" id="editModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -69,6 +68,6 @@
             </div>
         </div>
     </div>
-		{{/if}}
-    
+    {{/if}}
+
 </template>

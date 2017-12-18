@@ -1,13 +1,23 @@
 import { Tracker } from 'meteor/tracker';
+import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
 import { validarCPF } from '../../utils';
 
-export const OcorrenciasSchema = new SimpleSchema({
+let Ocorrencia = new Mongo.Collection('ocorrencias')
+
+let OcorrenciasSchema = new SimpleSchema({
+    funcionario: {
+        type: String
+    },
     dataDaOcorrencia : {
         type : Date
     },
-    justificativa : {
+    descricao : {
         type : String
     }
 }, {tracker: Tracker});
+
+Ocorrencia.attachSchema(OcorrenciasSchema)
+
+export default Ocorrencia

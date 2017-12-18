@@ -1,0 +1,9 @@
+<template name="addhoras">
+    <input type=text id="mes"/>
+    <input type=text id="ano"/>
+    {{#each funcionarios}}
+        {{#autoForm id="updateHoras" type="update" collection=Funcionarios doc=this setArrayItems=true autosave=true}}
+            {{> afQuickField name=indiceHoras label=nome}}
+        {{/autoForm}}
+    {{/each}}
+</template>

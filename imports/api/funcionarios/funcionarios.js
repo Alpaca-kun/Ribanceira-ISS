@@ -26,6 +26,22 @@ let FuncionariosSchema = new SimpleSchema({
     },
     empresa: {
         type: String
+    },
+    horas: {
+        type: Array,
+        defaultValue: []
+    },
+    "horas.$": {
+        type: Object
+    },
+    "horas.$.ano": {
+        type: Number
+    },
+    "horas.$.mes": {
+        type: Number
+    },
+    "horas.$.horas": {
+        type: Number
     }
 }, {tracker: Tracker});
 

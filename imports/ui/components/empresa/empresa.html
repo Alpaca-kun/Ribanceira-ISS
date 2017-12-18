@@ -82,7 +82,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    {{> quickForm collection=Empresas omitFields="funcionarios" id="updateEmpresa" type="update" doc=atual}}
+                    {{> quickForm collection=Empresas omitFields=["funcionarios", "horas"] id="updateEmpresa" type="update" doc=atual}}
                 </div>
             </div>
         </div>

@@ -9,6 +9,7 @@ import '../../ui/components/empresa/empresa.js';
 import '../../ui/components/sindicato/sindicato.js';
 import '../../ui/components/funcionario/funcionario.js';
 import '../../ui/components/horaextra/adciona_hora.js';
+import '../../ui/components/ocorrencia/ocorrencia.js';
 
 // Set up all routes in the app
 FlowRouter.route('/', {
@@ -39,6 +40,12 @@ FlowRouter.route('/empresas/:id/funcionarios', {
 FlowRouter.route('/empresas/:id/addHoras', {
     action() {
         BlazeLayout.render('App_body', { main: 'addhoras'})
+    }
+});
+
+FlowRouter.route('/funcionarios/:funcionarioId/ocorrencias', {
+    action() {
+        BlazeLayout.render('App_body', { main: 'ocorrencias'})
     }
 });
 

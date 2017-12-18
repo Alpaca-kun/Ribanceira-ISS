@@ -1,0 +1,17 @@
+<template name="addhoras">
+    <label for="mes">Mes</label>
+    <input type=text id="mes"/>
+    <label for="ano">Ano</label>
+    <input type=text id="ano"/>
+    {{#each horas}}
+        {{#if hora}}
+            {{#autoForm id="updatetHora" collection=HoraExtra doc=hora type="update"}}
+                {{> afQuickField label=nome name="horas" template="bootstrap.inline" autosave=true}}
+            {{/autoForm}}
+        {{else}}
+            {{#autoForm id="insertHora" collection=HoraExtra type="insert"}}
+                {{> afQuickField label=nome name="horas" template="bootstrap.inline" autosave=true}}
+            {{/autoForm}}
+        {{/if}}
+    {{/each}}
+</template>

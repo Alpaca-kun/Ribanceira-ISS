@@ -41,6 +41,7 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="/empresas/{{_id}}/funcionarios">Gerenciar Funcionarios</a>
+                            <a class="dropdown-item" href="/empresas/{{_id}}/addHoras">Adicionar Horas Extras</a>
                         </div>
                     </div>
                 </td>
@@ -81,7 +82,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    {{> quickForm collection=Empresas omitFields="funcionarios" id="updateEmpresa" type="update" doc=atual}}
+                    {{> quickForm collection=Empresas omitFields=["funcionarios", "horas"] id="updateEmpresa" type="update" doc=atual}}
                 </div>
             </div>
         </div>
